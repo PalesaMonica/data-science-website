@@ -6,6 +6,9 @@
   <title>Achievements | Data Science Interest Group</title>
   <meta name="description" content="Competition results of the Wits Data Science Interest Group at the DIRISA Student Datathon and the IBM Z Datathon.">
   <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -28,6 +31,23 @@
         <h2>National finals, year by year</h2>
         <p>Each team has a technical group and a research group, guided by a mentor. <a href="https://sdc.dirisa.ac.za">About the competition</a></p>
       </div>
+
+      <!-- RESULTS CHART: after the 2026 finals, add a point for the new team by copying a <g class="pt"> group
+           (cy is 62 for 1st, 122 for 2nd, 182 for 3rd; cx is 640 for 2026; the label sits 18 above the point) and delete the "Finals" band. -->
+      <figure class="chart-card">
+        <figcaption><strong>Technical Challenge placing at the DIRISA nationals</strong><span>One point per year. In 2025 AnalytIQ also placed 3rd in the Research Challenge.</span></figcaption>
+        <div class="chart-scroll">
+          <svg viewBox="0 0 720 250" role="img" aria-label="Technical Challenge placing by year: 3rd in 2023, 1st in 2024, 2nd in 2025. The 2026 finals take place from 6 to 11 December.">
+            <g class="c-grid"><line x1="70" x2="700" y1="62" y2="62"/><text x="58" y="66" text-anchor="end">1st</text><line x1="70" x2="700" y1="122" y2="122"/><text x="58" y="126" text-anchor="end">2nd</text><line x1="70" x2="700" y1="182" y2="182"/><text x="58" y="186" text-anchor="end">3rd</text></g>
+            <rect class="c-band" x="590" y="40" width="100" height="165" rx="8"/>
+            <text class="c-note" x="640" y="116" text-anchor="middle">Finals</text>
+            <text class="c-note" x="640" y="134" text-anchor="middle">6 to 11 Dec</text>
+            <path class="c-line" d="M130 182 L300 62 L470 122"/>
+            <g class="pt"><title>2023: Data Wizards, 3rd place in the Technical Challenge</title><circle cx="130" cy="182" r="18" fill="transparent"/><circle class="dot" cx="130" cy="182" r="7"/><text class="lab" x="130" y="208" text-anchor="middle">Data Wizards</text></g><g class="pt"><title>2024: Byte Busters, 1st place in the Technical Challenge</title><circle cx="300" cy="62" r="18" fill="transparent"/><circle class="dot" cx="300" cy="62" r="7"/><text class="lab" x="300" y="44" text-anchor="middle">Byte Busters</text></g><g class="pt"><title>2025: AnalytIQ, 2nd place in the Technical Challenge</title><circle cx="470" cy="122" r="18" fill="transparent"/><circle class="dot" cx="470" cy="122" r="7"/><text class="lab" x="470" y="104" text-anchor="middle">AnalytIQ</text></g>
+            <g class="c-years"><text x="130" y="232" text-anchor="middle">2023</text><text x="300" y="232" text-anchor="middle">2024</text><text x="470" y="232" text-anchor="middle">2025</text><text x="640" y="232" text-anchor="middle">2026</text></g>
+          </svg>
+        </div>
+      </figure>
 
       <!-- PHOTOS: each team has a <div class="gallery"> of <a class="tile"> links. To add a photo, copy a tile line and
            change the two file names, the alt text and the caption. Use class "gallery mosaic" when a team has five photos
