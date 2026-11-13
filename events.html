@@ -55,20 +55,31 @@ events.<span class="tf">info</span>()</code></pre>
   <section class="cell ">
     <div class="cell-in" aria-hidden="true">
       <span class="prompt in-p" data-n="3">In [3]:</span>
-      <pre class="code"><code>events[events.status == <span class="ts">"upcoming"</span>]</code></pre>
+      <pre class="code"><code>events[events.year == <span class="tn">2026</span>].<span class="tf">sort_values</span>(<span class="ts">"month"</span>)</code></pre>
     </div>
     <div class="cell-out">
       <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
       <div class="output">
-        <h2>Upcoming events</h2>
-        <!-- TO ADD AN EVENT: copy one <tr> row in the table below and change the text. -->
+        <h2>2026 calendar</h2>
+        <p class="intro">The DIRISA Student Datathon season runs from the April workshops to the national finals in December.</p>
+        <!-- TO ADD AN EVENT: copy one <tr> row in the table below and change the text.
+             For the last column use class "status done", "status now" or "status next". -->
         <div class="df-wrap"><table class="df ">
-          <thead><tr><th></th><th scope="col">date</th><th scope="col">event</th><th scope="col">where</th></tr></thead>
+          <thead><tr><th></th><th scope="col">when</th><th scope="col">event</th><th scope="col">status</th></tr></thead>
           <tbody>
-          <tr><th scope="row">0</th><td data-label="date">6 to 11 Dec 2026</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong><br>Our 2026 team, No Data Left Behind, competes at the national finals after qualifying in 2nd position.</td><td data-label="where">Stellenbosch University<br><a href="https://sdc.dirisa.ac.za">sdc.dirisa.ac.za</a></td></tr>
+          <tr><th scope="row">0</th><td data-label="when">April</td><td data-label="event"><strong>DIRISA GIZ workshop</strong></td><td data-label="status"><span class="status done">done</span></td></tr>
+          <tr><th scope="row">1</th><td data-label="when">April</td><td data-label="event"><strong>DIRISA Student Datathon roadshow</strong></td><td data-label="status"><span class="status done">done</span></td></tr>
+          <tr><th scope="row">2</th><td data-label="when">July</td><td data-label="event"><strong>DIRISA training</strong></td><td data-label="status"><span class="status done">done</span></td></tr>
+          <tr><th scope="row">3</th><td data-label="when">August</td><td data-label="event"><strong>DIRISA SDC individual qualifiers quiz</strong></td><td data-label="status"><span class="status done">done</span></td></tr>
+          <tr><th scope="row">4</th><td data-label="when">September</td><td data-label="event"><strong>DIRISA team qualifiers challenge</strong></td><td data-label="status"><span class="status done">done</span></td></tr>
+          <tr><th scope="row">5</th><td data-label="when">November to December</td><td data-label="event"><strong>Wits training sessions for the DIRISA finals</strong></td><td data-label="status"><span class="status now">in progress</span></td></tr>
+          <tr><th scope="row">6</th><td data-label="when">6 to 11 December</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong><br>Our 2026 team, No Data Left Behind, competes at the national finals at Stellenbosch University after qualifying in 2nd position. <a href="https://sdc.dirisa.ac.za">sdc.dirisa.ac.za</a></td><td data-label="status"><span class="status next">upcoming</span></td></tr>
           </tbody>
         </table></div>
-        <p class="df-shape">1 row &times; 3 columns</p>
+        <p class="df-shape">7 rows &times; 3 columns</p>
+        <div class="gallery single wide">
+          <a class="tile" href="assets/img/giz-workshop-2026.jpg"><img src="assets/img/giz-workshop-2026.jpg" alt="Students gathered for a group photo at the DIRISA GIZ workshop" loading="lazy"><span class="cap">DIRISA GIZ workshop, April 2026</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -94,28 +105,6 @@ events.<span class="tf">info</span>()</code></pre>
             <p><a href="https://www.starhacks.org/ibm-z-datathon-2025">starhacks.org/ibm-z-datathon-2025</a></p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="cell ">
-    <div class="cell-in" aria-hidden="true">
-      <span class="prompt in-p" data-n="5">In [5]:</span>
-      <pre class="code"><code>events[events.status == <span class="ts">"past"</span>].<span class="tf">sort_values</span>(<span class="ts">"year"</span>, ascending=<span class="tk">False</span>)</code></pre>
-    </div>
-    <div class="cell-out">
-      <span class="prompt out-p" aria-hidden="true">Out[5]:</span>
-      <div class="output">
-        <h2>Past events</h2>
-        <div class="df-wrap"><table class="df ">
-          <thead><tr><th></th><th scope="col">year</th><th scope="col">event</th><th scope="col">what happened</th></tr></thead>
-          <tbody>
-          <tr><th scope="row">0</th><td data-label="year"></td><td data-label="event"><strong>Information session</strong></td><td data-label="what happened">An introduction to the team, the group's goals, the topics we cover, our competition history and a demo of the 2025 AnalytIQ DIRISA project.</td></tr>
-          <tr><th scope="row">1</th><td data-label="year">2025</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong></td><td data-label="what happened">AnalytIQ placed 2nd in the Technical Challenge and 3rd in the Research Challenge.</td></tr>
-          <tr><th scope="row">2</th><td data-label="year">2024</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong></td><td data-label="what happened">Byte Busters won 1st place in the Technical Challenge.</td></tr>
-          <tr><th scope="row">3</th><td data-label="year">2023</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong></td><td data-label="what happened">Data Wizards placed 3rd in the Technical Challenge.</td></tr>
-          </tbody>
-        </table></div>
-        <p class="df-shape">4 rows &times; 3 columns</p>
       </div>
     </div>
   </section>

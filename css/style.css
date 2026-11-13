@@ -127,7 +127,7 @@ p { margin: 0 0 1em; }
 .df thead th { font-family: var(--mono); font-size: .8rem; font-weight: 600; color: var(--navy); text-align: left; padding: .45rem .9rem; border-bottom: 1.5px solid var(--navy); white-space: nowrap; }
 .df tbody th { font-family: var(--mono); font-size: .82rem; font-weight: 600; color: var(--muted); text-align: right; padding: .7rem .9rem; vertical-align: top; white-space: nowrap; width: 1%; }
 .df td { padding: .65rem .9rem; vertical-align: top; }
-.df td:first-of-type { min-width: 11em; }
+.df td:first-of-type { min-width: 9em; }
 .df tbody tr:nth-child(odd) { background: #f6f8fc; }
 .df tbody tr:hover { background: #e7efff; }
 .df strong { color: var(--navy); font-weight: 600; }
@@ -269,3 +269,16 @@ a.card .more { color: var(--blue); font-weight: 600; font-size: .93rem; }
 .site-footer li { margin-bottom: .3rem; }
 .statusbar { margin-top: 2rem; background: rgba(0, 0, 0, .22); font-family: var(--mono); font-size: .74rem; color: #9fb0d8; }
 .statusbar .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem 1.5rem; padding-top: .55rem; padding-bottom: .55rem; }
+
+/* event status labels */
+.status { font-family: var(--mono); font-size: .76rem; font-weight: 500; border-radius: 4px; padding: .12rem .5rem; white-space: nowrap; border: 1px solid var(--line); color: var(--muted); background: #fff; }
+.status.now { background: var(--tint); border-color: #bcd2ff; color: var(--navy); }
+.status.next { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* portrait row and extras */
+.gallery.portraits { grid-template-columns: repeat(auto-fill, minmax(150px, 190px)); }
+.gallery.portraits .tile { aspect-ratio: 4 / 5; }
+.gallery.portraits .tile img { object-position: center 25%; }
+.gallery.single.wide { max-width: 640px; margin-top: 1.4rem; }
+.award { margin: 0 0 1rem; padding: .55rem .8rem; border-left: 3px solid #e0b93f; background: #fffaeb; color: #5c4300; font-size: .93rem; border-radius: 0 4px 4px 0; }
+.award strong { color: #5c4300; }
