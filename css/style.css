@@ -335,3 +335,7 @@ a.card .more { color: var(--blue); font-weight: 600; font-size: .93rem; }
   .pp { margin: 0; width: 110px; }
 }
 .tfig.single.natural a.card > img { aspect-ratio: auto; }
+/* a row of round portraits */
+.prow { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 1rem .6rem; }
+.prow .pp { margin: 0; text-align: center; }
+.card .tfig { margin-top: .8rem; }
