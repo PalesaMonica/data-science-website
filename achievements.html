@@ -86,10 +86,11 @@ team</code></pre>
     <div class="cell-out">
       <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
       <div class="output">
-        <!-- PHOTOS: laid out like a matplotlib figure. Each photo is one <a class="ax"> line inside <div class="subplots">.
-             To add a photo, copy an <a class="ax"> line and change the two file names, the alt text and the title,
-             keeping the letters (a), (b), (c) in order. "cols-3" or "cols-4" sets how many photos sit in a row.
-             Clicking a photo opens it full size. -->
+        <!-- PHOTOS: each team's photos are points on a timeline, in the order they happened.
+             Every photo is one <a class="shot tp up"> or <a class="shot tp dn"> line ("up" sits above the line, "dn" below; alternate them).
+             To add a photo, copy a line, change the two file names, the alt text and the caption, renumber t0, t1, t2 ...
+             and update --n on the <div class="tline"> to the new number of photos. To reorder, move the lines.
+             Round portraits at the side are <a class="shot pp"> lines. Clicking any photo opens it full size. -->
         <div class="result-top">
           <div>
             <h3>No Data Left Behind</h3>
@@ -101,7 +102,7 @@ team</code></pre>
             <div><h4>mentor</h4><ul><li>Palesa Rapolaki</li></ul></div>
           </div>
         </div>
-        <!-- Replace this note with a <figure class="mpl"> block of photos (copy one from a team below) after the finals -->
+        <!-- Replace this note with a <figure class="tfig"> timeline (copy one from a team below) after the finals -->
         <p class="gallery-note"><strong>Nationals result to be confirmed.</strong> Team photos and the final placing will be added after the finals.</p>
       </div>
     </div>
@@ -110,8 +111,7 @@ team</code></pre>
     <div class="cell-in" aria-hidden="true">
       <span class="prompt in-p" data-n="4">In [4]:</span>
       <pre class="code"><code>team = results.dirisa.loc[<span class="tn">2025</span>]
-fig, axes = plt.<span class="tf">subplots</span>(<span class="tn">2</span>, <span class="tn">4</span>)
-team.<span class="tf">show_photos</span>(axes)</code></pre>
+team.photos.<span class="tf">plot</span>(x=<span class="ts">"time"</span>)</code></pre>
     </div>
     <div class="cell-out">
       <span class="prompt out-p" aria-hidden="true">Out[4]:</span>
@@ -127,15 +127,19 @@ team.<span class="tf">show_photos</span>(axes)</code></pre>
             <div><h4>mentor</h4><ul><li>Palesa Rapolaki</li></ul></div>
           </div>
         </div>
-        <figure class="mpl">
-          <div class="subplots cols-4">
-            <a class="ax" href="assets/img/dirisa-2025-podium.jpg"><span class="ax-title">(a) Prize-giving</span><span class="ax-frame"><img src="assets/img/dirisa-2025-podium.jpg" alt="AnalytIQ team members holding certificates at the 2025 DIRISA prize-giving" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/analytiq-team.jpg"><span class="ax-title">(b) Technical team at work</span><span class="ax-frame"><img src="assets/img/analytiq-team.jpg" alt="AnalytIQ technical team working at their table" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/analytiq-2025-a.jpg"><span class="ax-title">(c) At the finals venue</span><span class="ax-frame"><img src="assets/img/analytiq-2025-a.jpg" alt="Four AnalytIQ members standing together at the venue" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/analytiq-2025-b.jpg"><span class="ax-title">(d) The team with their mentor</span><span class="ax-frame"><img src="assets/img/analytiq-2025-b.jpg" alt="AnalytIQ team group selfie" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/analytiq-2025-c.jpg"><span class="ax-title">(e) Travelling to nationals</span><span class="ax-frame"><img src="assets/img/analytiq-2025-c.jpg" alt="AnalytIQ team at the airport on the way to nationals" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/portrait-2025-mpho.jpg"><span class="ax-title">(f) Mpho Murashiwa, research</span><span class="ax-frame"><img src="assets/img/portrait-2025-mpho.jpg" alt="Mpho Murashiwa" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/portrait-2025-gwen.jpg"><span class="ax-title">(g) Gwen Molekwa, research</span><span class="ax-frame"><img src="assets/img/portrait-2025-gwen.jpg" alt="Gwen Molekwa" loading="lazy"></span></a>
+        <figure class="tfig" data-gallery>
+          <div class="timeline">
+            <div class="tline" style="--n:5">
+              <a class="shot tp up" href="assets/img/analytiq-2025-c.jpg"><span class="card"><img src="assets/img/analytiq-2025-c.jpg" alt="AnalytIQ team at the airport on the way to nationals" loading="lazy" style="object-position:50% 45%"><span class="cap">Travelling to nationals</span></span><span class="tick">t<sub>0</sub></span></a>
+              <a class="shot tp dn" href="assets/img/analytiq-2025-a.jpg"><span class="card"><img src="assets/img/analytiq-2025-a.jpg" alt="Four AnalytIQ members standing together at the venue" loading="lazy" style="object-position:50% 40%"><span class="cap">At the finals venue</span></span><span class="tick">t<sub>1</sub></span></a>
+              <a class="shot tp up" href="assets/img/analytiq-team.jpg"><span class="card"><img src="assets/img/analytiq-team.jpg" alt="AnalytIQ technical team working at their table" loading="lazy" style="object-position:50% 90%"><span class="cap">Technical team at work</span></span><span class="tick">t<sub>2</sub></span></a>
+              <a class="shot tp dn" href="assets/img/analytiq-2025-b.jpg"><span class="card"><img src="assets/img/analytiq-2025-b.jpg" alt="AnalytIQ team group selfie" loading="lazy" style="object-position:50% 35%"><span class="cap">The team with their mentor</span></span><span class="tick">t<sub>3</sub></span></a>
+              <a class="shot tp up" href="assets/img/dirisa-2025-podium.jpg"><span class="card"><img src="assets/img/dirisa-2025-podium.jpg" alt="AnalytIQ team members holding certificates at the 2025 DIRISA prize-giving" loading="lazy" style="object-position:50% 35%"><span class="cap">Prize-giving</span></span><span class="tick">t<sub>4</sub></span></a>
+            </div>
+            <div class="tside"><small>research_team</small>
+              <a class="shot pp" href="assets/img/portrait-2025-mpho.jpg"><img src="assets/img/portrait-2025-mpho.jpg" alt="Mpho Murashiwa" loading="lazy" style="object-position:50% 25%"><span class="cap">Mpho Murashiwa</span></a>
+              <a class="shot pp" href="assets/img/portrait-2025-gwen.jpg"><img src="assets/img/portrait-2025-gwen.jpg" alt="Gwen Molekwa" loading="lazy" style="object-position:50% 30%"><span class="cap">Gwen Molekwa</span></a>
+            </div>
           </div>
           <figcaption><b>Figure 2.</b> AnalytIQ at the 2025 DIRISA Student Datathon nationals.</figcaption>
         </figure>
@@ -146,8 +150,7 @@ team.<span class="tf">show_photos</span>(axes)</code></pre>
     <div class="cell-in" aria-hidden="true">
       <span class="prompt in-p" data-n="5">In [5]:</span>
       <pre class="code"><code>team = results.dirisa.loc[<span class="tn">2024</span>]
-fig, axes = plt.<span class="tf">subplots</span>(<span class="tn">2</span>, <span class="tn">4</span>)
-team.<span class="tf">show_photos</span>(axes)</code></pre>
+team.photos.<span class="tf">plot</span>(x=<span class="ts">"time"</span>)</code></pre>
     </div>
     <div class="cell-out">
       <span class="prompt out-p" aria-hidden="true">Out[5]:</span>
@@ -164,15 +167,19 @@ team.<span class="tf">show_photos</span>(axes)</code></pre>
             <div><h4>mentor</h4><ul><li>Lungile Mngonyama</li></ul></div>
           </div>
         </div>
-        <figure class="mpl">
-          <div class="subplots cols-4">
-            <a class="ax" href="assets/img/dirisa-2024-podium.jpg"><span class="ax-title">(a) Prize-giving</span><span class="ax-frame"><img src="assets/img/dirisa-2024-podium.jpg" alt="Byte Busters team with their prizes at the 2024 DIRISA prize-giving" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/byte-busters-team.jpg"><span class="ax-title">(b) Technical team</span><span class="ax-frame"><img src="assets/img/byte-busters-team.jpg" alt="Byte Busters technical team" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/byte-busters-booth.jpg"><span class="ax-title">(c) At the team booth</span><span class="ax-frame"><img src="assets/img/byte-busters-booth.jpg" alt="Byte Busters working at their booth during the datathon" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/byte-busters-venue.jpg"><span class="ax-title">(d) At the finals</span><span class="ax-frame"><img src="assets/img/byte-busters-venue.jpg" alt="Byte Busters team standing together indoors at the finals" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/byte-busters-outdoors.jpg"><span class="ax-title">(e) The team at nationals</span><span class="ax-frame"><img src="assets/img/byte-busters-outdoors.jpg" alt="Byte Busters team outdoors at sunset" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/portrait-2024-research-a.jpg"><span class="ax-title">(f) Keren Chetty, research</span><span class="ax-frame"><img src="assets/img/portrait-2024-research-a.jpg" alt="Keren Chetty" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/portrait-2024-research-b.jpg"><span class="ax-title">(g) Amarachukwu Onwenu, research</span><span class="ax-frame"><img src="assets/img/portrait-2024-research-b.jpg" alt="Amarachukwu Onwenu" loading="lazy"></span></a>
+        <figure class="tfig" data-gallery>
+          <div class="timeline">
+            <div class="tline" style="--n:5">
+              <a class="shot tp up" href="assets/img/byte-busters-venue.jpg"><span class="card"><img src="assets/img/byte-busters-venue.jpg" alt="Byte Busters team standing together indoors at the finals" loading="lazy" style="object-position:50% 40%"><span class="cap">At the finals</span></span><span class="tick">t<sub>0</sub></span></a>
+              <a class="shot tp dn" href="assets/img/byte-busters-team.jpg"><span class="card"><img src="assets/img/byte-busters-team.jpg" alt="Byte Busters technical team" loading="lazy" style="object-position:50% 15%"><span class="cap">Technical team</span></span><span class="tick">t<sub>1</sub></span></a>
+              <a class="shot tp up" href="assets/img/byte-busters-booth.jpg"><span class="card"><img src="assets/img/byte-busters-booth.jpg" alt="Byte Busters working at their booth during the datathon" loading="lazy" style="object-position:50% 72%"><span class="cap">At the team booth</span></span><span class="tick">t<sub>2</sub></span></a>
+              <a class="shot tp dn" href="assets/img/byte-busters-outdoors.jpg"><span class="card"><img src="assets/img/byte-busters-outdoors.jpg" alt="Byte Busters team outdoors at sunset" loading="lazy" style="object-position:50% 40%"><span class="cap">The team at nationals</span></span><span class="tick">t<sub>3</sub></span></a>
+              <a class="shot tp up" href="assets/img/dirisa-2024-podium.jpg"><span class="card"><img src="assets/img/dirisa-2024-podium.jpg" alt="Byte Busters team with their prizes at the 2024 DIRISA prize-giving" loading="lazy" style="object-position:50% 35%"><span class="cap">Prize-giving</span></span><span class="tick">t<sub>4</sub></span></a>
+            </div>
+            <div class="tside"><small>research_team</small>
+              <a class="shot pp" href="assets/img/portrait-2024-research-a.jpg"><img src="assets/img/portrait-2024-research-a.jpg" alt="Keren Chetty" loading="lazy" style="object-position:50% 30%"><span class="cap">Keren Chetty</span></a>
+              <a class="shot pp" href="assets/img/portrait-2024-research-b.jpg"><img src="assets/img/portrait-2024-research-b.jpg" alt="Amarachukwu Onwenu" loading="lazy" style="object-position:50% 25%"><span class="cap">Amarachukwu Onwenu</span></a>
+            </div>
           </div>
           <figcaption><b>Figure 3.</b> Byte Busters at the 2024 DIRISA Student Datathon nationals.</figcaption>
         </figure>
@@ -183,8 +190,7 @@ team.<span class="tf">show_photos</span>(axes)</code></pre>
     <div class="cell-in" aria-hidden="true">
       <span class="prompt in-p" data-n="6">In [6]:</span>
       <pre class="code"><code>team = results.dirisa.loc[<span class="tn">2023</span>]
-fig, axes = plt.<span class="tf">subplots</span>(<span class="tn">2</span>, <span class="tn">3</span>)
-team.<span class="tf">show_photos</span>(axes)</code></pre>
+team.photos.<span class="tf">plot</span>(x=<span class="ts">"time"</span>)</code></pre>
     </div>
     <div class="cell-out">
       <span class="prompt out-p" aria-hidden="true">Out[6]:</span>
@@ -200,14 +206,18 @@ team.<span class="tf">show_photos</span>(axes)</code></pre>
             <div><h4>mentor</h4><ul><li>Lungile Mngonyama</li></ul></div>
           </div>
         </div>
-        <figure class="mpl">
-          <div class="subplots cols-3">
-            <a class="ax" href="assets/img/dirisa-2023-podium.jpg"><span class="ax-title">(a) Prize-giving</span><span class="ax-frame"><img src="assets/img/dirisa-2023-podium.jpg" alt="Data Wizards team receiving their award at the 2023 DIRISA prize-giving" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/data-wizards-venue.jpg"><span class="ax-title">(b) At the datathon</span><span class="ax-frame"><img src="assets/img/data-wizards-venue.jpg" alt="Data Wizards team members standing together in front of research posters" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/data-wizards-team.jpg"><span class="ax-title">(c) Technical team at work</span><span class="ax-frame"><img src="assets/img/data-wizards-team.jpg" alt="Data Wizards technical team working together" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/data-wizards-dinner.jpg"><span class="ax-title">(d) Team dinner</span><span class="ax-frame"><img src="assets/img/data-wizards-dinner.jpg" alt="Data Wizards team members at dinner" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/portrait-2023-research-a.jpg"><span class="ax-title">(e) Muhammed Bangie, research</span><span class="ax-frame"><img src="assets/img/portrait-2023-research-a.jpg" alt="Muhammed Bangie" loading="lazy"></span></a>
-            <a class="ax" href="assets/img/portrait-2023-research-b.jpg"><span class="ax-title">(f) Mahdiyyah Jhetam, research</span><span class="ax-frame"><img src="assets/img/portrait-2023-research-b.jpg" alt="Mahdiyyah Jhetam" loading="lazy"></span></a>
+        <figure class="tfig" data-gallery>
+          <div class="timeline">
+            <div class="tline" style="--n:4">
+              <a class="shot tp up" href="assets/img/data-wizards-venue.jpg"><span class="card"><img src="assets/img/data-wizards-venue.jpg" alt="Data Wizards team members standing together in front of research posters" loading="lazy" style="object-position:50% 30%"><span class="cap">At the datathon</span></span><span class="tick">t<sub>0</sub></span></a>
+              <a class="shot tp dn" href="assets/img/data-wizards-team.jpg"><span class="card"><img src="assets/img/data-wizards-team.jpg" alt="Data Wizards technical team working together" loading="lazy" style="object-position:50% 45%"><span class="cap">Technical team at work</span></span><span class="tick">t<sub>1</sub></span></a>
+              <a class="shot tp up" href="assets/img/data-wizards-dinner.jpg"><span class="card"><img src="assets/img/data-wizards-dinner.jpg" alt="Data Wizards team members at dinner" loading="lazy" style="object-position:50% 30%"><span class="cap">Team dinner</span></span><span class="tick">t<sub>2</sub></span></a>
+              <a class="shot tp dn" href="assets/img/dirisa-2023-podium.jpg"><span class="card"><img src="assets/img/dirisa-2023-podium.jpg" alt="Data Wizards team receiving their award at the 2023 DIRISA prize-giving" loading="lazy" style="object-position:50% 35%"><span class="cap">Prize-giving</span></span><span class="tick">t<sub>3</sub></span></a>
+            </div>
+            <div class="tside"><small>research_team</small>
+              <a class="shot pp" href="assets/img/portrait-2023-research-a.jpg"><img src="assets/img/portrait-2023-research-a.jpg" alt="Muhammed Bangie" loading="lazy" style="object-position:50% 30%"><span class="cap">Muhammed Bangie</span></a>
+              <a class="shot pp" href="assets/img/portrait-2023-research-b.jpg"><img src="assets/img/portrait-2023-research-b.jpg" alt="Mahdiyyah Jhetam" loading="lazy" style="object-position:50% 35%"><span class="cap">Mahdiyyah Jhetam</span></a>
+            </div>
           </div>
           <figcaption><b>Figure 4.</b> Data Wizards at the 2023 DIRISA Student Datathon nationals.</figcaption>
         </figure>
@@ -229,16 +239,18 @@ team.<span class="tf">show_photos</span>(axes)</code></pre>
             <h3>IBM Z Datathon 2025</h3>
             <ul class="badges"><li class="first">South African winners</li></ul>
             <div class="roster one"><div><h4>team</h4><ul><li>Viasha Morgan</li><li>Theto Maunatlala</li><li>Gwen Molekwa</li><li>Mpho Murashiwa</li></ul></div></div>
+            <figure class="tfig single natural" data-gallery>
+              <a class="shot card" href="assets/img/ibmz-2025.jpg"><img src="assets/img/ibmz-2025.jpg" alt="Portraits of the 2025 IBM Z Datathon team: Viasha Morgan, Theto Maunatlala, Gwen Molekwa and Mpho Murashiwa" loading="lazy" style="object-position:50% 50%"><span class="cap">The 2025 team</span></a>
+              <figcaption><b>Figure 5.</b> The 2025 IBM Z Datathon team.</figcaption>
+            </figure>
           </div>
           <div class="card">
             <h3>IBM Z Datathon 2024</h3>
             <ul class="badges"><li class="first">South African winners</li></ul>
             <div class="roster one"><div><h4>team</h4><ul><li>Mixo Khoza</li><li>Goitseona Sono</li><li>Amarachukwu Onwenu</li><li>Daniel Ngobe</li></ul></div></div>
-            <figure class="mpl">
-              <div class="subplots cols-1">
-                <a class="ax" href="assets/img/ibmz-2024.jpg"><span class="ax-title">The 2024 team</span><span class="ax-frame"><img src="assets/img/ibmz-2024.jpg" alt="The 2024 IBM Z Datathon team in a computer lab" loading="lazy"></span></a>
-              </div>
-              <figcaption><b>Figure 5.</b> The 2024 IBM Z Datathon team.</figcaption>
+            <figure class="tfig single" data-gallery>
+              <a class="shot card" href="assets/img/ibmz-2024.jpg"><img src="assets/img/ibmz-2024.jpg" alt="The 2024 IBM Z Datathon team in a computer lab" loading="lazy" style="object-position:50% 40%"><span class="cap">The 2024 team</span></a>
+              <figcaption><b>Figure 6.</b> The 2024 IBM Z Datathon team.</figcaption>
             </figure>
           </div>
         </div>

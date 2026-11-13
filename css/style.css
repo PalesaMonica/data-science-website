@@ -279,26 +279,59 @@ a.card .more { color: var(--blue); font-weight: 600; font-size: .93rem; }
 .award strong { color: #5c4300; }
 
 
-/* ---------- Photos as a matplotlib-style figure ---------- */
-.mpl { margin: 1.5rem 0 0; border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: 1.1rem 1.2rem .9rem 1.5rem; }
-.mpl figcaption { font-size: .88rem; color: var(--muted); text-align: center; margin-top: 1rem; }
-.mpl figcaption b { color: var(--navy); font-weight: 600; }
-.subplots { display: grid; gap: 1.3rem 1.6rem; }
-.subplots.cols-1 { grid-template-columns: minmax(0, 520px); justify-content: center; }
-.subplots.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.subplots.cols-4 { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 900px) { .subplots.cols-3, .subplots.cols-4 { grid-template-columns: 1fr 1fr; } }
-.ax { display: block; text-decoration: none; color: var(--ink); cursor: zoom-in; }
-.ax-title { display: block; text-align: center; font-family: var(--mono); font-size: .74rem; line-height: 1.35; margin-bottom: .4rem; min-height: 2.7em; display: flex; align-items: flex-end; justify-content: center; }
-.subplots.cols-1 .ax-title { min-height: 0; }
-/* the axes: a framed plot area with tick marks down the left and along the bottom */
-.ax-frame { position: relative; display: block; aspect-ratio: 4 / 3; border: 1px solid #5a657b; background: var(--code-bg); }
-.ax-frame::before, .ax-frame::after { content: ""; position: absolute; pointer-events: none; }
-.ax-frame::before { left: -6px; top: 0; bottom: 0; width: 5px; background: repeating-linear-gradient(to bottom, #5a657b 0 1px, transparent 1px 20%); background-position: 0 10%; }
-.ax-frame::after { bottom: -6px; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(to right, #5a657b 0 1px, transparent 1px 20%); background-position: 10% 0; }
-.ax-frame img { width: 100%; height: 100%; object-fit: contain; transition: opacity .2s; }
-.ax:hover .ax-frame, .ax:focus-visible .ax-frame { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(37, 99, 235, .2); }
-.ax:hover .ax-title { color: var(--blue); }
-.ax:focus-visible { outline: none; }
-.card .mpl { border: 0; padding: .5rem 0 0 .5rem; margin-top: .5rem; }
-@media (max-width: 900px) { .ax-title { min-height: 4.1em; } }
+/* ---------- Photos as a timeline plot ---------- */
+.tfig { margin: 1.6rem 0 0; }
+.tfig figcaption { font-size: .88rem; color: var(--muted); text-align: center; margin-top: 1.1rem; }
+.tfig figcaption b { color: var(--navy); font-weight: 600; }
+.timeline { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 2rem; align-items: center; }
+/* three rows: photos above the axis, the axis itself, photos below it */
+.tline { position: relative; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); grid-template-rows: auto 64px auto; column-gap: .9rem; padding-right: 16px; }
+.tline::before { content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto 0; height: 2px; background: var(--navy); }
+.tline::after { content: ""; position: absolute; right: -8px; top: 0; bottom: 0; margin: auto 0; width: 0; height: 0; border: 6px solid transparent; border-left-color: var(--navy); }
+.tp { grid-row: 1 / 4; display: grid; grid-template-rows: subgrid; text-decoration: none; color: inherit; cursor: zoom-in; position: relative; }
+.tp .card { grid-row: 1; align-self: end; }
+.tp.dn .card { grid-row: 3; align-self: start; }
+.card:has(> img) { padding: 6px; border-radius: 6px; box-shadow: 0 4px 14px rgba(22, 48, 122, .08); display: block; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.card > img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
+.card .cap { display: block; font-size: .8rem; font-weight: 600; color: var(--navy); line-height: 1.3; margin: .4rem .15rem .1rem; }
+.tp:hover .card, .tp:focus-visible .card, a.card.shot:hover { border-color: var(--blue); box-shadow: 0 6px 18px rgba(37, 99, 235, .18); }
+.tp.up:hover .card { transform: translateY(-2px); }
+.tp.dn:hover .card { transform: translateY(2px); }
+.tp:focus-visible { outline: none; }
+/* the point on the axis, its stem to the photo, and its t label on the other side */
+.tick { grid-row: 2; position: relative; font-family: var(--mono); font-size: .76rem; color: var(--muted); text-align: center; align-self: stretch; }
+.tick::before { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--blue); border: 3px solid #fff; box-shadow: 0 0 0 2px var(--blue); z-index: 1; box-sizing: border-box; }
+.tick::after { content: ""; position: absolute; left: 50%; width: 2px; margin-left: -1px; background: #9db8f3; top: 0; height: 50%; }
+.tp.dn .tick::after { top: 50%; }
+.tp.up .tick { padding-top: 42px; }
+.tp.dn .tick { padding-top: 2px; }
+.tp:hover .tick::before { background: var(--navy); box-shadow: 0 0 0 2px var(--navy); }
+/* portraits beside the plot */
+.tside { text-align: center; }
+.tside small { display: block; font-family: var(--mono); font-size: .76rem; color: var(--muted); margin-bottom: .6rem; }
+.pp { display: block; text-decoration: none; cursor: zoom-in; margin-bottom: .8rem; }
+.pp img { width: 104px; height: 104px; margin: 0 auto; border-radius: 50%; object-fit: cover; border: 3px solid var(--tint); transition: border-color .15s; }
+.pp:hover img, .pp:focus-visible img { border-color: var(--blue); }
+.pp .cap { display: block; font-size: .8rem; font-weight: 600; color: var(--navy); line-height: 1.3; margin-top: .35rem; }
+/* a single photo */
+.tfig.single { max-width: 520px; }
+.tfig.single a.card { text-decoration: none; cursor: zoom-in; background: #fff; border: 1px solid var(--line); }
+.card .tfig.single { margin-top: .6rem; }
+
+/* narrow screens: the axis turns vertical and photos stack beside it */
+@media (max-width: 900px) {
+  .timeline { grid-template-columns: 1fr; gap: 1.5rem; }
+  .tline { display: block; padding: 0 0 0 30px; }
+  .tline::before { left: 8px; right: auto; width: 2px; height: auto; margin: 0; }
+  .tline::after { display: none; }
+  .tp { display: block; margin-bottom: 1.1rem; max-width: 420px; }
+  .tp:hover .card { transform: none; }
+  .tick { position: absolute; left: -30px; top: 14px; width: 18px; height: 18px; padding: 0 !important; font-size: 0; }
+  .tick sub { font-size: 0; }
+  .tick::before { left: 9px; top: 9px; }
+  .tick::after { display: none; }
+  .tside { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: flex-start; padding-left: 30px; }
+  .tside small { width: 100%; text-align: left; margin: 0; }
+  .pp { margin: 0; width: 110px; }
+}
+.tfig.single.natural a.card > img { aspect-ratio: auto; }
