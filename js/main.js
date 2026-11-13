@@ -91,8 +91,8 @@
     });
   }
 
-  // Photo lightbox: any <a class="tile"> opens its image full size, with arrows to move through the same gallery.
-  var tiles = document.querySelectorAll("a.tile");
+  // Photo lightbox: any <a class="ax"> opens its image full size, with arrows to move through the same gallery.
+  var tiles = document.querySelectorAll("a.ax");
   if (tiles.length) {
     var box = document.createElement("div");
     box.className = "lightbox";
@@ -111,7 +111,7 @@
 
     function show(n) {
       at = (n + set.length) % set.length;
-      var t = set[at], inner = t.querySelector("img"), c = t.querySelector(".cap");
+      var t = set[at], inner = t.querySelector("img"), c = t.querySelector(".ax-title");
       img.src = t.getAttribute("href");
       img.alt = inner ? inner.alt : "";
       cap.textContent = c ? c.textContent : "";
@@ -126,7 +126,7 @@
       t.addEventListener("click", function (e) {
         e.preventDefault();
         opener = t;
-        set = Array.prototype.slice.call(t.closest(".gallery").querySelectorAll("a.tile"));
+        set = Array.prototype.slice.call(t.closest(".subplots").querySelectorAll("a.ax"));
         show(set.indexOf(t));
         box.classList.add("open");
         document.body.style.overflow = "hidden";

@@ -14,6 +14,8 @@
   --muted: #5a657b;
   --line: #dde3ee;
   --string: #0b7285;
+  --series-1: #2563eb;     /* chart: Technical Challenge */
+  --series-2: #c2410c;     /* chart: Research Challenge */
   --radius: 8px;
   --gutter: 92px;
   --sans: "IBM Plex Sans", "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -205,20 +207,6 @@ a.card .more { color: var(--blue); font-weight: 600; font-size: .93rem; }
 .roster h4 { font-family: var(--mono); font-size: .76rem; font-weight: 500; letter-spacing: 0; color: var(--muted); margin-bottom: .3rem; }
 .roster ul { list-style: none; padding: 0; margin: 0; font-size: .97rem; }
 .gallery-note { margin: 1.25rem 0 0; padding: .8rem 1rem; border: 1.5px dashed #bcd2ff; border-radius: 6px; background: var(--tint); color: var(--navy); font-size: .95rem; }
-.gallery { display: grid; gap: .5rem; margin-top: 1.4rem; }
-.gallery.pair { grid-template-columns: 1fr 1fr; }
-.gallery.trio { grid-template-columns: repeat(3, 1fr); }
-.gallery.mosaic { grid-template-columns: repeat(4, 1fr); }
-.gallery.mosaic .lead { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-.gallery.single { margin-top: .25rem; }
-.tile { position: relative; display: block; overflow: hidden; border-radius: 6px; aspect-ratio: 3 / 2; background: var(--tint); cursor: zoom-in; }
-.tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transition: transform .35s ease; }
-.tile.top img { object-position: center 12%; }
-.tile.low img { object-position: center 90%; }
-.tile:hover img, .tile:focus-visible img { transform: scale(1.04); }
-.tile:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
-.tile .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.6rem .8rem .5rem; color: #fff; font-size: .85rem; font-weight: 600; background: linear-gradient(transparent, rgba(10, 22, 60, .78)); }
-@media (max-width: 640px) { .gallery.pair, .gallery.trio { grid-template-columns: 1fr; } .gallery.mosaic { grid-template-columns: 1fr 1fr; } }
 
 /* results chart */
 .fig.chart { padding: 1rem 1.2rem .6rem; margin-top: 1.2rem; }
@@ -227,13 +215,25 @@ a.card .more { color: var(--blue); font-weight: 600; font-size: .93rem; }
 .chart-scroll { overflow-x: auto; }
 .chart-scroll svg { min-width: 560px; }
 .c-grid line { stroke: #e6ebf4; }
-.c-grid text, .c-years text { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+.c-grid text, .c-years .yr { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+.c-years .tm { font-size: 12px; font-weight: 600; fill: var(--ink); }
+.c-break { stroke: #c5cedd; stroke-dasharray: 2 5; }
 .c-band { fill: var(--tint); stroke: #bcd2ff; stroke-dasharray: 4 4; }
 .c-note { font-family: var(--mono); font-size: 12px; fill: var(--navy); }
-.c-line { fill: none; stroke: var(--blue); stroke-width: 2; stroke-linejoin: round; }
-.pt .dot { fill: var(--blue); stroke: #fff; stroke-width: 2; transition: r .15s; }
-.pt:hover .dot { r: 9; }
-.pt .lab { font-size: 13px; font-weight: 600; fill: var(--ink); }
+.c-line { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.c-line.tech { stroke: var(--series-1); }
+.c-line.rsch { stroke: var(--series-2); stroke-dasharray: 6 4; }
+.pt .dot { stroke: #fff; stroke-width: 2; }
+.pt.tech .dot { fill: var(--series-1); }
+.pt.rsch .dot { fill: var(--series-2); }
+.pt:hover .dot { stroke: var(--ink); }
+.fig.chart .lab { font-size: 12.5px; font-weight: 600; fill: var(--ink); }
+.legend { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; margin-top: .6rem; font-size: .86rem; color: var(--ink); }
+.legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.legend .k { width: 26px; height: 10px; flex: none; }
+.legend .k.tech { background: radial-gradient(circle at center, var(--series-1) 4.5px, transparent 5px), linear-gradient(var(--series-1), var(--series-1)) center / 100% 2px no-repeat; }
+.legend .k.rsch { background: linear-gradient(45deg, transparent 0, transparent 100%), repeating-linear-gradient(90deg, var(--series-2) 0 6px, transparent 6px 10px) center / 100% 2px no-repeat; position: relative; }
+.legend .k.rsch::after { content: ""; position: absolute; left: 9px; top: 1px; width: 8px; height: 8px; background: var(--series-2); transform: rotate(45deg); }
 
 /* lightbox */
 .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(8, 16, 44, .92); display: none; align-items: center; justify-content: center; padding: 3.5rem 1rem; }
@@ -275,10 +275,30 @@ a.card .more { color: var(--blue); font-weight: 600; font-size: .93rem; }
 .status.now { background: var(--tint); border-color: #bcd2ff; color: var(--navy); }
 .status.next { background: var(--blue); border-color: var(--blue); color: #fff; }
 
-/* portrait row and extras */
-.gallery.portraits { grid-template-columns: repeat(auto-fill, minmax(150px, 190px)); }
-.gallery.portraits .tile { aspect-ratio: 4 / 5; }
-.gallery.portraits .tile img { object-position: center 25%; }
-.gallery.single.wide { max-width: 640px; margin-top: 1.4rem; }
 .award { margin: 0 0 1rem; padding: .55rem .8rem; border-left: 3px solid #e0b93f; background: #fffaeb; color: #5c4300; font-size: .93rem; border-radius: 0 4px 4px 0; }
 .award strong { color: #5c4300; }
+
+
+/* ---------- Photos as a matplotlib-style figure ---------- */
+.mpl { margin: 1.5rem 0 0; border: 1px solid var(--line); border-radius: 6px; background: #fff; padding: 1.1rem 1.2rem .9rem 1.5rem; }
+.mpl figcaption { font-size: .88rem; color: var(--muted); text-align: center; margin-top: 1rem; }
+.mpl figcaption b { color: var(--navy); font-weight: 600; }
+.subplots { display: grid; gap: 1.3rem 1.6rem; }
+.subplots.cols-1 { grid-template-columns: minmax(0, 520px); justify-content: center; }
+.subplots.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.subplots.cols-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .subplots.cols-3, .subplots.cols-4 { grid-template-columns: 1fr 1fr; } }
+.ax { display: block; text-decoration: none; color: var(--ink); cursor: zoom-in; }
+.ax-title { display: block; text-align: center; font-family: var(--mono); font-size: .74rem; line-height: 1.35; margin-bottom: .4rem; min-height: 2.7em; display: flex; align-items: flex-end; justify-content: center; }
+.subplots.cols-1 .ax-title { min-height: 0; }
+/* the axes: a framed plot area with tick marks down the left and along the bottom */
+.ax-frame { position: relative; display: block; aspect-ratio: 4 / 3; border: 1px solid #5a657b; background: var(--code-bg); }
+.ax-frame::before, .ax-frame::after { content: ""; position: absolute; pointer-events: none; }
+.ax-frame::before { left: -6px; top: 0; bottom: 0; width: 5px; background: repeating-linear-gradient(to bottom, #5a657b 0 1px, transparent 1px 20%); background-position: 0 10%; }
+.ax-frame::after { bottom: -6px; left: 0; right: 0; height: 5px; background: repeating-linear-gradient(to right, #5a657b 0 1px, transparent 1px 20%); background-position: 10% 0; }
+.ax-frame img { width: 100%; height: 100%; object-fit: contain; transition: opacity .2s; }
+.ax:hover .ax-frame, .ax:focus-visible .ax-frame { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(37, 99, 235, .2); }
+.ax:hover .ax-title { color: var(--blue); }
+.ax:focus-visible { outline: none; }
+.card .mpl { border: 0; padding: .5rem 0 0 .5rem; margin-top: .5rem; }
+@media (max-width: 900px) { .ax-title { min-height: 4.1em; } }

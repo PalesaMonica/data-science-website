@@ -55,7 +55,8 @@ events.<span class="tf">info</span>()</code></pre>
   <section class="cell ">
     <div class="cell-in" aria-hidden="true">
       <span class="prompt in-p" data-n="3">In [3]:</span>
-      <pre class="code"><code>events[events.year == <span class="tn">2026</span>].<span class="tf">sort_values</span>(<span class="ts">"month"</span>)</code></pre>
+      <pre class="code"><code>events[events.year == <span class="tn">2026</span>].<span class="tf">sort_values</span>(<span class="ts">"month"</span>)
+plt.<span class="tf">imshow</span>(photos[<span class="ts">"giz_workshop"</span>])</code></pre>
     </div>
     <div class="cell-out">
       <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
@@ -77,9 +78,13 @@ events.<span class="tf">info</span>()</code></pre>
           </tbody>
         </table></div>
         <p class="df-shape">7 rows &times; 3 columns</p>
-        <div class="gallery single wide">
-          <a class="tile" href="assets/img/giz-workshop-2026.jpg"><img src="assets/img/giz-workshop-2026.jpg" alt="Students gathered for a group photo at the DIRISA GIZ workshop" loading="lazy"><span class="cap">DIRISA GIZ workshop, April 2026</span></a>
-        </div>
+
+        <figure class="mpl">
+          <div class="subplots cols-1">
+            <a class="ax" href="assets/img/giz-workshop-2026.jpg"><span class="ax-title">DIRISA GIZ workshop</span><span class="ax-frame"><img src="assets/img/giz-workshop-2026.jpg" alt="Students gathered for a group photo at the DIRISA GIZ workshop" loading="lazy"></span></a>
+          </div>
+          <figcaption><b>Figure 1.</b> Students at the DIRISA GIZ workshop, April 2026.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
