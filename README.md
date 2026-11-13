@@ -27,3 +27,7 @@ HTML comments (`<!-- ... -->`) in each page mark the spots meant for regular upd
 ## Clean addresses
 
 Links between pages leave out `.html`, so visitors see `/events` rather than `/events.html`. This works once the site is hosted (Netlify, GitHub Pages). If you open the files directly from your computer by double-clicking, the menu links will not work; open each page file individually, or preview on the host instead.
+
+## The notebook look
+
+The site is styled as a Jupyter notebook. Each block of content is a "cell": a decorative line of Python (`cell-in`) followed by the real content (`cell-out`). To change wording, edit the text inside `<div class="output">`. The code lines are decoration only; change them if you like, but nothing depends on them. The header tabs (`home.ipynb`, `events.ipynb` and so on) are defined at the top of `js/main.js`.

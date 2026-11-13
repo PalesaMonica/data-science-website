@@ -13,82 +13,75 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header" id="site-header"></header>
+<header class="chrome" id="site-header"></header>
 
-<main id="main">
-  <div class="page-hero">
-    <div class="wrap">
-      <span class="eyebrow">Team and join</span>
-      <h1>The people behind the group</h1>
-      <p>The group is run by students, for students, with support from Mathematical Sciences Support at Wits.</p>
+<!-- HOW THIS PAGE IS BUILT
+     The page is styled as a Jupyter notebook. Each <section class="cell"> has a decorative line of code (cell-in)
+     and the real content underneath (cell-out > output). To change wording, edit the text inside "output".
+     The code lines are only decoration and can be left alone. -->
+<main id="main" class="notebook">
+
+  <section class="cell cell-title">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="1">In [1]:</span>
+      <pre class="code"><code><span class="tk">from</span> dsig <span class="tk">import</span> team
+team.<span class="tf">show</span>()</code></pre>
     </div>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">2026</span>
-        <h2>The team</h2>
-      </div>
-      <!-- To use a photo instead of initials, replace <div class="avatar">KD</div>
-           with <img class="avatar" src="assets/img/name.jpg" alt="Name"> -->
-      <div class="grid c3">
-        <div class="card person">
-          <div class="avatar" aria-hidden="true">KD</div>
-          <span class="role">Manager</span>
-          <h3>Kay Dlamini</h3>
+    <div class="cell-out">
+      <span class="prompt" aria-hidden="true"></span>
+      <div class="output">
+        <p class="kicker">Team and join</p>
+        <h1>The people behind the group</h1>
+        <p class="lead">The group is run by students, for students, with support from Mathematical Sciences Support at Wits.</p>
+        <!-- To use a photo instead of initials, replace <div class="avatar">KD</div>
+             with <img class="avatar" src="assets/img/name.jpg" alt="Name"> -->
+        <div class="grid c3 people">
+          <div class="card person"><div class="avatar" aria-hidden="true">KD</div><span class="role">manager</span><h3>Kay Dlamini</h3></div>
+          <div class="card person"><div class="avatar" aria-hidden="true">PR</div><span class="role">mentor</span><h3>Palesa Rapolaki</h3><p>MSc Computer Science student</p></div>
+          <div class="card person"><div class="avatar" aria-hidden="true">TS</div><span class="role">co_mentor</span><h3>Theo Sono</h3><p>MSc Computational and Applied Mathematics student</p></div>
         </div>
-        <div class="card person">
-          <div class="avatar" aria-hidden="true">PR</div>
-          <span class="role">Mentor</span>
-          <h3>Palesa Rapolaki</h3>
-          <p class="muted">MSc Computer Science student</p>
-        </div>
-        <div class="card person">
-          <div class="avatar" aria-hidden="true">TS</div>
-          <span class="role">Co-mentor</span>
-          <h3>Theo Sono</h3>
-          <p class="muted">MSc Computational and Applied Mathematics student</p>
-        </div>
-      </div>
-
-      <h3 style="margin-top: 3rem;">Past mentors</h3>
-      <p class="muted">Lungile Mngonyama mentored the 2023 Data Wizards and 2024 Byte Busters DIRISA teams.</p>
-    </div>
-  </section>
-
-  <section class="alt" id="join">
-    <div class="wrap">
-      <div class="join" style="grid-template-columns: 1fr; max-width: 720px;">
-        <div>
-          <span class="eyebrow">Join us</span>
-          <h2>How to get involved</h2>
-          <p class="muted">The group is aimed at undergraduate students across the CSAM and EIE schools. You do not need any data science experience to start.</p>
-          <ol class="steps">
-            <li><strong>Come on a Thursday.</strong> We meet from 13:15 to 14:00 in MSL005.</li>
-            <li><strong>Enrol on Moodle.</strong> Session material lives on the <a href="https://courses.ms.wits.ac.za/moodle/course/view.php?id=70">Mathematical Sciences Moodle course</a>.</li>
-            <li><strong>Start reading.</strong> The <a href="resources">training manual</a> covers everything from the first session onwards.</li>
-          </ol>
-        </div>
+        <p class="after"><strong>Past mentors.</strong> Lungile Mngonyama mentored the 2023 Data Wizards and 2024 Byte Busters DIRISA teams.</p>
       </div>
     </div>
   </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Contact</span>
+  <section class="cell " id="join">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="2">In [2]:</span>
+      <pre class="code"><code>community.<span class="tf">join</span>()</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[2]:</span>
+      <div class="output">
+        <h2>How to get involved</h2>
+        <p class="intro">The group is aimed at undergraduate students across the CSAM and EIE schools. You do not need any data science experience to start.</p>
+        <ol class="steps">
+          <li><strong>Come on a Thursday.</strong> We meet from 13:15 to 14:00 in MSL005.</li>
+          <li><strong>Enrol on Moodle.</strong> Session material lives on the <a href="https://courses.ms.wits.ac.za/moodle/course/view.php?id=70">Mathematical Sciences Moodle course</a>.</li>
+          <li><strong>Start reading.</strong> The <a href="resources">training manual</a> covers everything from the first session onwards.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <section class="cell " id="contact">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="3">In [3]:</span>
+      <pre class="code"><code>community.<span class="tf">contact</span>()</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
+      <div class="output">
         <h2>Get in touch</h2>
-        <p>The quickest way to reach us is in person at a Thursday session. You can also find the group through Mathematical Sciences Support.</p>
-      </div>
-      <!-- Add a contact email here if you want one shown, for example:
-           <p><a class="btn" href="mailto:your.address@wits.ac.za">Email the group</a></p> -->
-      <div class="btn-row">
-        <a class="btn" href="https://www.wits.ac.za/mss/interest-groups/data-science/">Wits MSS page</a>
-        <a class="btn ghost" href="https://courses.ms.wits.ac.za/moodle/course/view.php?id=70">Moodle course</a>
+        <p class="intro">The quickest way to reach us is in person at a Thursday session. You can also find the group through Mathematical Sciences Support.</p>
+        <!-- Add a contact email here if you want one shown, for example:
+             <p><a class="btn" href="mailto:your.address@wits.ac.za">Email the group</a></p> -->
+        <div class="btn-row">
+          <a class="btn" href="https://www.wits.ac.za/mss/interest-groups/data-science/">Wits MSS page</a>
+          <a class="btn ghost" href="https://courses.ms.wits.ac.za/moodle/course/view.php?id=70">Moodle course</a>
+        </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer class="site-footer" id="site-footer"></footer>

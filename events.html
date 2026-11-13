@@ -13,109 +13,113 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header" id="site-header"></header>
+<header class="chrome" id="site-header"></header>
 
-<main id="main">
-  <div class="page-hero">
-    <div class="wrap">
-      <span class="eyebrow">Events and workshops</span>
-      <h1>What is happening</h1>
-      <p>A weekly hands-on session during term, plus the competitions our teams prepare for through the year.</p>
+<!-- HOW THIS PAGE IS BUILT
+     The page is styled as a Jupyter notebook. Each <section class="cell"> has a decorative line of code (cell-in)
+     and the real content underneath (cell-out > output). To change wording, edit the text inside "output".
+     The code lines are only decoration and can be left alone. -->
+<main id="main" class="notebook">
+
+  <section class="cell cell-title">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="1">In [1]:</span>
+      <pre class="code"><code><span class="tk">import</span> events
+events.<span class="tf">info</span>()</code></pre>
     </div>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Every week</span>
+    <div class="cell-out">
+      <span class="prompt" aria-hidden="true"></span>
+      <div class="output">
+        <p class="kicker">Events and workshops</p>
+        <h1>What is happening</h1>
+        <p class="lead">A weekly hands-on session during term, plus the competitions our teams prepare for through the year.</p>
+      </div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="2">In [2]:</span>
+      <pre class="code"><code>events.<span class="tf">weekly</span>()</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[2]:</span>
+      <div class="output">
         <h2>Thursday session</h2>
-        <p>Each session works through one stage of a real data science project, following the training manual. Open to all interested students.</p>
-      </div>
-      <div class="schedule">
-        <div><small>Day</small><b>Thursdays</b></div>
-        <div><small>Time</small><b>13:15 to 14:00</b></div>
-        <div><small>Venue</small><b>MSL005</b></div>
+        <p class="intro">Each session works through one stage of a real data science project, following the training manual. Open to all interested students.</p>
+        <pre class="repr">{<span class="ts">'day'</span>: <span class="ts val">'Thursdays'</span>,
+ <span class="ts">'time'</span>: <span class="ts val">'13:15 to 14:00'</span>,
+ <span class="ts">'venue'</span>: <span class="ts val">'MSL005'</span>}</pre>
       </div>
     </div>
   </section>
-
-  <section class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Coming up</span>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="3">In [3]:</span>
+      <pre class="code"><code>events[events.status == <span class="ts">"upcoming"</span>]</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
+      <div class="output">
         <h2>Upcoming events</h2>
+        <!-- TO ADD AN EVENT: copy one <tr> row in the table below and change the text. -->
+        <div class="df-wrap"><table class="df ">
+          <thead><tr><th></th><th scope="col">date</th><th scope="col">event</th><th scope="col">where</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">0</th><td data-label="date">6 to 11 Dec 2026</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong><br>Our 2026 team, No Data Left Behind, competes at the national finals after qualifying in 2nd position.</td><td data-label="where">Stellenbosch University<br><a href="https://sdc.dirisa.ac.za">sdc.dirisa.ac.za</a></td></tr>
+          </tbody>
+        </table></div>
+        <p class="df-shape">1 row &times; 3 columns</p>
       </div>
-
-      <!-- TO ADD AN EVENT: copy one <article class="event"> block, paste it above or below, and change the text. -->
-      <article class="event">
-        <div class="date"><small>Dec 2026</small>6 to 11</div>
-        <div>
-          <h3>DIRISA Student Datathon Nationals</h3>
-          <p>Our 2026 team, No Data Left Behind, competes at the national finals after qualifying in 2nd position.</p>
-          <p class="where">Stellenbosch University &middot; <a href="https://sdc.dirisa.ac.za">sdc.dirisa.ac.za</a></p>
-        </div>
-      </article>
     </div>
   </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Through the year</span>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="4">In [4]:</span>
+      <pre class="code"><code>competitions.<span class="tf">list</span>()</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[4]:</span>
+      <div class="output">
         <h2>Competitions we enter</h2>
-        <p>Members can try out for the group's competition teams. Past results are on the <a href="achievements">achievements page</a>.</p>
+        <p class="intro">Members can try out for the group's competition teams. Past results are on the <a href="achievements">achievements page</a>.</p>
+        <div class="grid c2">
+          <div class="card">
+            <h3>DIRISA Student Datathon Challenge</h3>
+            <p>A national student datathon with a qualifying round followed by in-person finals. Teams have a technical group and a research group, and are judged in both a Technical Challenge and a Research Challenge.</p>
+            <p><a href="https://sdc.dirisa.ac.za">sdc.dirisa.ac.za</a></p>
+          </div>
+          <div class="card">
+            <h3>IBM Z Datathon</h3>
+            <p>A social-good datathon run as an in-person national competition. Our members were the South African winners in 2024 and 2025.</p>
+            <p><a href="https://www.starhacks.org/ibm-z-datathon-2025">starhacks.org/ibm-z-datathon-2025</a></p>
+          </div>
+        </div>
       </div>
-      <div class="grid c2">
-        <div class="card">
-          <h3>DIRISA Student Datathon Challenge</h3>
-          <p class="muted">A national student datathon with a qualifying round followed by in-person finals. Teams have a technical group and a research group, and are judged in both a Technical Challenge and a Research Challenge.</p>
-          <p><a href="https://sdc.dirisa.ac.za">sdc.dirisa.ac.za</a></p>
-        </div>
-        <div class="card">
-          <h3>IBM Z Datathon</h3>
-          <p class="muted">A social-good datathon run as an in-person national competition. Our members were the South African winners in 2024 and 2025.</p>
-          <p><a href="https://www.starhacks.org/ibm-z-datathon-2025">starhacks.org/ibm-z-datathon-2025</a></p>
-        </div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="5">In [5]:</span>
+      <pre class="code"><code>events[events.status == <span class="ts">"past"</span>].<span class="tf">sort_values</span>(<span class="ts">"year"</span>, ascending=<span class="tk">False</span>)</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[5]:</span>
+      <div class="output">
+        <h2>Past events</h2>
+        <div class="df-wrap"><table class="df ">
+          <thead><tr><th></th><th scope="col">year</th><th scope="col">event</th><th scope="col">what happened</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">0</th><td data-label="year"></td><td data-label="event"><strong>Information session</strong></td><td data-label="what happened">An introduction to the team, the group's goals, the topics we cover, our competition history and a demo of the 2025 AnalytIQ DIRISA project.</td></tr>
+          <tr><th scope="row">1</th><td data-label="year">2025</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong></td><td data-label="what happened">AnalytIQ placed 2nd in the Technical Challenge and 3rd in the Research Challenge.</td></tr>
+          <tr><th scope="row">2</th><td data-label="year">2024</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong></td><td data-label="what happened">Byte Busters won 1st place in the Technical Challenge.</td></tr>
+          <tr><th scope="row">3</th><td data-label="year">2023</td><td data-label="event"><strong>DIRISA Student Datathon Nationals</strong></td><td data-label="what happened">Data Wizards placed 3rd in the Technical Challenge.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="df-shape">4 rows &times; 3 columns</p>
       </div>
     </div>
   </section>
 
-  <section class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Looking back</span>
-        <h2>Past events</h2>
-      </div>
-      <article class="event">
-        <div class="date"><small>Intro</small>Info session</div>
-        <div>
-          <h3>Data Science Interest Group information session</h3>
-          <p>An introduction to the team, the group's goals, the topics we cover, our competition history and a demo of the 2025 AnalytIQ DIRISA project.</p>
-        </div>
-      </article>
-      <article class="event">
-        <div class="date"><small>2025</small>Nationals</div>
-        <div>
-          <h3>DIRISA Student Datathon Nationals 2025</h3>
-          <p>AnalytIQ placed 2nd in the Technical Challenge and 3rd in the Research Challenge.</p>
-        </div>
-      </article>
-      <article class="event">
-        <div class="date"><small>2024</small>Nationals</div>
-        <div>
-          <h3>DIRISA Student Datathon Nationals 2024</h3>
-          <p>Byte Busters won 1st place in the Technical Challenge.</p>
-        </div>
-      </article>
-      <article class="event">
-        <div class="date"><small>2023</small>Nationals</div>
-        <div>
-          <h3>DIRISA Student Datathon Nationals 2023</h3>
-          <p>Data Wizards placed 3rd in the Technical Challenge.</p>
-        </div>
-      </article>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer" id="site-footer"></footer>

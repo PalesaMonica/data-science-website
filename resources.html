@@ -13,92 +13,105 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header" id="site-header"></header>
+<header class="chrome" id="site-header"></header>
 
-<main id="main">
-  <div class="page-hero">
-    <div class="wrap">
-      <span class="eyebrow">Resources</span>
-      <h1>Learn at your own pace</h1>
-      <p>Everything we teach is written down. Start with the training manual, try the ideas in the Model Playground, and find session material on Moodle.</p>
+<!-- HOW THIS PAGE IS BUILT
+     The page is styled as a Jupyter notebook. Each <section class="cell"> has a decorative line of code (cell-in)
+     and the real content underneath (cell-out > output). To change wording, edit the text inside "output".
+     The code lines are only decoration and can be left alone. -->
+<main id="main" class="notebook">
+
+  <section class="cell cell-title">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="1">In [1]:</span>
+      <pre class="code"><code>!ls resources/</code></pre>
     </div>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <div class="grid c3">
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group">
-          <h3>Training manual</h3>
-          <p class="muted">Our own data science manual. It follows the order of a real project, so each chapter builds on the one before.</p>
-          <span class="more">Open the manual &rarr;</span>
-        </a>
-        <a class="card" href="https://palesamonica.github.io/dsig-playground/">
-          <h3>Model Playground</h3>
-          <p class="muted">Interactive demos that go with most chapters of the manual. Change the inputs and watch what the model does.</p>
-          <span class="more">Open the playground &rarr;</span>
-        </a>
-        <a class="card" href="https://courses.ms.wits.ac.za/moodle/course/view.php?id=70">
-          <h3>Moodle course</h3>
-          <p class="muted">Session material and announcements on the Mathematical Sciences Moodle site. Wits login required.</p>
-          <span class="more">Go to Moodle &rarr;</span>
-        </a>
+    <div class="cell-out">
+      <span class="prompt" aria-hidden="true"></span>
+      <div class="output">
+        <p class="kicker">Resources</p>
+        <h1>Learn at your own pace</h1>
+        <p class="lead">Everything we teach is written down. Start with the training manual, try the ideas in the Model Playground, and find session material on Moodle.</p>
+        <div class="grid c3 files">
+          <a class="card file" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><span class="fname">training_manual/</span><h3>Training manual</h3><p>Our own data science manual. It follows the order of a real project, so each chapter builds on the one before.</p><span class="more">Open the manual &rarr;</span></a>
+          <a class="card file" href="https://palesamonica.github.io/dsig-playground/"><span class="fname">model_playground/</span><h3>Model Playground</h3><p>Interactive demos that go with most chapters of the manual. Change the inputs and watch what the model does.</p><span class="more">Open the playground &rarr;</span></a>
+          <a class="card file" href="https://courses.ms.wits.ac.za/moodle/course/view.php?id=70"><span class="fname">moodle_course/</span><h3>Moodle course</h3><p>Session material and announcements on the Mathematical Sciences Moodle site. Wits login required.</p><span class="more">Go to Moodle &rarr;</span></a>
+        </div>
       </div>
     </div>
   </section>
-
-  <section class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Training manual</span>
-        <h2>Chapter by chapter</h2>
-        <p>The manual walks through a project from raw data to an explained model.</p>
-      </div>
-      <!-- Chapters 6 to 10 link to the manual's front page. Replace each href with the chapter's own link if you want direct links. -->
-      <div class="grid c2">
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/overview"><span class="num">01</span><h3>Overview</h3><p class="muted">Who we are, what we cover and how the manual is organised.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/tech-stack"><span class="num">02</span><h3>Tech stack</h3><p class="muted">The open-source tools we use for exploration, model development and deployment.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/data-preprocessing-and-cleaning"><span class="num">03</span><h3>Data preprocessing and cleaning</h3><p class="muted">Standards and good practice for cleaning and documenting data so the work is reliable and reproducible.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/data-analysis-and-exploration"><span class="num">04</span><h3>Data analysis and exploration</h3><p class="muted">Understanding cleaned data before modelling: relationships, patterns and assumptions.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/feature-engineering"><span class="num">05</span><h3>Feature engineering</h3><p class="muted">A structured workflow for building and selecting features on any project.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><span class="num">06</span><h3>Build models</h3><p class="muted">Turning prepared data into working models.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><span class="num">07</span><h3>Select and evaluate</h3><p class="muted">Comparing models and measuring how good they really are.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><span class="num">08</span><h3>Tune</h3><p class="muted">Improving a chosen model by tuning it.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><span class="num">09</span><h3>Feature importance</h3><p class="muted">Finding out which features drive a model's predictions.</p></a>
-        <a class="card" href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><span class="num">10</span><h3>Explain with LIME</h3><p class="muted">Explaining individual predictions in plain terms.</p></a>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="2">In [2]:</span>
+      <pre class="code"><code>manual.chapters</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[2]:</span>
+      <div class="output">
+        <h2>The training manual, chapter by chapter</h2>
+        <p class="intro">The manual walks through a project from raw data to an explained model.</p>
+        <!-- Chapters 6 to 10 link to the manual's front page. Replace each href with the chapter's own link if you want direct links. -->
+        <div class="df-wrap"><table class="df ">
+          <thead><tr><th></th><th scope="col">chapter</th><th scope="col">what it covers</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">1</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/overview"><strong>Overview</strong></a></td><td data-label="what it covers">Who we are, what we cover and how the manual is organised.</td></tr>
+          <tr><th scope="row">2</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/tech-stack"><strong>Tech stack</strong></a></td><td data-label="what it covers">The open-source tools we use for exploration, model development and deployment.</td></tr>
+          <tr><th scope="row">3</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/data-preprocessing-and-cleaning"><strong>Data preprocessing and cleaning</strong></a></td><td data-label="what it covers">Standards and good practice for cleaning and documenting data so the work is reliable and reproducible.</td></tr>
+          <tr><th scope="row">4</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/data-analysis-and-exploration"><strong>Data analysis and exploration</strong></a></td><td data-label="what it covers">Understanding cleaned data before modelling: relationships, patterns and assumptions.</td></tr>
+          <tr><th scope="row">5</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group/feature-engineering"><strong>Feature engineering</strong></a></td><td data-label="what it covers">A structured workflow for building and selecting features on any project.</td></tr>
+          <tr><th scope="row">6</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><strong>Build models</strong></a></td><td data-label="what it covers">Turning prepared data into working models.</td></tr>
+          <tr><th scope="row">7</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><strong>Select and evaluate</strong></a></td><td data-label="what it covers">Comparing models and measuring how good they really are.</td></tr>
+          <tr><th scope="row">8</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><strong>Tune</strong></a></td><td data-label="what it covers">Improving a chosen model by tuning it.</td></tr>
+          <tr><th scope="row">9</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><strong>Feature importance</strong></a></td><td data-label="what it covers">Finding out which features drive a model's predictions.</td></tr>
+          <tr><th scope="row">10</th><td data-label="chapter"><a href="https://data-science-interest-group-manu.gitbook.io/data-science-interest-group"><strong>Explain with LIME</strong></a></td><td data-label="what it covers">Explaining individual predictions in plain terms.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="df-shape">10 rows &times; 2 columns</p>
       </div>
     </div>
   </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Tools</span>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="3">In [3]:</span>
+      <pre class="code"><code>tools.<span class="tf">groupby</span>(<span class="ts">"topic"</span>).<span class="tf">agg</span>(list)</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
+      <div class="output">
         <h2>What we use, by topic</h2>
+        <div class="df-wrap"><table class="df ">
+          <thead><tr><th></th><th scope="col">topic</th><th scope="col">tools</th></tr></thead>
+          <tbody>
+          <tr><th scope="row">0</th><td data-label="topic"><strong>Core data skills</strong></td><td data-label="tools"><ul class="chips"><li>Python</li><li>Pandas</li><li>SQL</li><li>Statistics</li></ul></td></tr>
+          <tr><th scope="row">1</th><td data-label="topic"><strong>Exploration and visualisation</strong></td><td data-label="tools"><ul class="chips"><li>Matplotlib</li><li>Power BI</li></ul></td></tr>
+          <tr><th scope="row">2</th><td data-label="topic"><strong>Machine learning</strong></td><td data-label="tools"><ul class="chips"><li>Scikit-Learn</li><li>TensorFlow</li><li>PyTorch</li></ul></td></tr>
+          <tr><th scope="row">3</th><td data-label="topic"><strong>Forecasting</strong></td><td data-label="tools"><ul class="chips"><li>Pandas</li><li>StatsModels</li></ul></td></tr>
+          <tr><th scope="row">4</th><td data-label="topic"><strong>Natural language processing</strong></td><td data-label="tools"><ul class="chips"><li>NLTK</li><li>spaCy</li></ul></td></tr>
+          <tr><th scope="row">5</th><td data-label="topic"><strong>Model deployment</strong></td><td data-label="tools"><ul class="chips"><li>FastAPI</li><li>MLflow</li><li>Streamlit</li></ul></td></tr>
+          </tbody>
+        </table></div>
+        <p class="df-shape">6 rows &times; 2 columns</p>
       </div>
-      <div class="grid c3">
-        <div class="card"><h3>Core data skills</h3><ul class="chips"><li>Python</li><li>Pandas</li><li>SQL</li><li>Statistics</li></ul></div>
-        <div class="card"><h3>Exploration and visualisation</h3><ul class="chips"><li>Matplotlib</li><li>Power BI</li></ul></div>
-        <div class="card"><h3>Machine learning</h3><ul class="chips"><li>Scikit-Learn</li><li>TensorFlow</li><li>PyTorch</li></ul></div>
-        <div class="card"><h3>Forecasting</h3><ul class="chips"><li>Pandas</li><li>StatsModels</li></ul></div>
-        <div class="card"><h3>Natural language processing</h3><ul class="chips"><li>NLTK</li><li>spaCy</li></ul></div>
-        <div class="card"><h3>Model deployment</h3><ul class="chips"><li>FastAPI</li><li>MLflow</li><li>Streamlit</li></ul></div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="4">In [4]:</span>
+      <pre class="code"><code>resources.links</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[4]:</span>
+      <div class="output">
+        <h2>Useful links</h2>
+        <div class="grid c3">
+          <a class="card" href="https://www.wits.ac.za/mss/interest-groups/data-science/"><h3>Wits MSS page</h3><p>The group's official page on the Mathematical Sciences Support site.</p><span class="more">wits.ac.za &rarr;</span></a>
+          <a class="card" href="https://sdc.dirisa.ac.za"><h3>DIRISA Student Datathon</h3><p>Information about the national student datathon challenge.</p><span class="more">sdc.dirisa.ac.za &rarr;</span></a>
+          <a class="card" href="https://www.starhacks.org/ibm-z-datathon-2025"><h3>IBM Z Datathon</h3><p>The social-good datathon our members have won in South Africa.</p><span class="more">starhacks.org &rarr;</span></a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Elsewhere</span>
-        <h2>Useful links</h2>
-      </div>
-      <div class="grid c3">
-        <a class="card" href="https://www.wits.ac.za/mss/interest-groups/data-science/"><h3>Wits MSS page</h3><p class="muted">The group's official page on the Mathematical Sciences Support site.</p><span class="more">wits.ac.za &rarr;</span></a>
-        <a class="card" href="https://sdc.dirisa.ac.za"><h3>DIRISA Student Datathon</h3><p class="muted">Information about the national student datathon challenge.</p><span class="more">sdc.dirisa.ac.za &rarr;</span></a>
-        <a class="card" href="https://www.starhacks.org/ibm-z-datathon-2025"><h3>IBM Z Datathon</h3><p class="muted">The social-good datathon our members have won in South Africa.</p><span class="more">starhacks.org &rarr;</span></a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer" id="site-footer"></footer>

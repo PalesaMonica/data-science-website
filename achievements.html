@@ -13,76 +13,104 @@
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header" id="site-header"></header>
+<header class="chrome" id="site-header"></header>
 
-<main id="main">
-  <div class="page-hero">
-    <div class="wrap">
-      <span class="eyebrow">Achievements</span>
-      <h1>Our competition record</h1>
-      <p>Since 2023 the group has sent a team to the DIRISA Student Datathon nationals every year, and our members have twice been the South African winners of the IBM Z Datathon.</p>
+<!-- HOW THIS PAGE IS BUILT
+     The page is styled as a Jupyter notebook. Each <section class="cell"> has a decorative line of code (cell-in)
+     and the real content underneath (cell-out > output). To change wording, edit the text inside "output".
+     The code lines are only decoration and can be left alone. -->
+<main id="main" class="notebook">
+
+  <section class="cell cell-title">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="1">In [1]:</span>
+      <pre class="code"><code><span class="tk">import</span> results
+results.<span class="tf">summary</span>()</code></pre>
     </div>
-  </div>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">DIRISA Student Datathon Challenge</span>
-        <h2>National finals, year by year</h2>
-        <p>Each team has a technical group and a research group, guided by a mentor. <a href="https://sdc.dirisa.ac.za">About the competition</a></p>
+    <div class="cell-out">
+      <span class="prompt" aria-hidden="true"></span>
+      <div class="output">
+        <p class="kicker">Achievements</p>
+        <h1>Our competition record</h1>
+        <p class="lead">Since 2023 the group has sent a team to the DIRISA Student Datathon nationals every year, and our members have twice been the South African winners of the IBM Z Datathon.</p>
       </div>
-
-      <!-- RESULTS CHART: after the 2026 finals, add a point for the new team by copying a <g class="pt"> group
-           (cy is 62 for 1st, 122 for 2nd, 182 for 3rd; cx is 640 for 2026; the label sits 18 above the point) and delete the "Finals" band. -->
-      <figure class="chart-card">
-        <figcaption><strong>Technical Challenge placing at the DIRISA nationals</strong><span>One point per year. In 2025 AnalytIQ also placed 3rd in the Research Challenge.</span></figcaption>
-        <div class="chart-scroll">
-          <svg viewBox="0 0 720 250" role="img" aria-label="Technical Challenge placing by year: 3rd in 2023, 1st in 2024, 2nd in 2025. The 2026 finals take place from 6 to 11 December.">
-            <g class="c-grid"><line x1="70" x2="700" y1="62" y2="62"/><text x="58" y="66" text-anchor="end">1st</text><line x1="70" x2="700" y1="122" y2="122"/><text x="58" y="126" text-anchor="end">2nd</text><line x1="70" x2="700" y1="182" y2="182"/><text x="58" y="186" text-anchor="end">3rd</text></g>
-            <rect class="c-band" x="590" y="40" width="100" height="165" rx="8"/>
-            <text class="c-note" x="640" y="116" text-anchor="middle">Finals</text>
-            <text class="c-note" x="640" y="134" text-anchor="middle">6 to 11 Dec</text>
-            <path class="c-line" d="M130 182 L300 62 L470 122"/>
-            <g class="pt"><title>2023: Data Wizards, 3rd place in the Technical Challenge</title><circle cx="130" cy="182" r="18" fill="transparent"/><circle class="dot" cx="130" cy="182" r="7"/><text class="lab" x="130" y="208" text-anchor="middle">Data Wizards</text></g><g class="pt"><title>2024: Byte Busters, 1st place in the Technical Challenge</title><circle cx="300" cy="62" r="18" fill="transparent"/><circle class="dot" cx="300" cy="62" r="7"/><text class="lab" x="300" y="44" text-anchor="middle">Byte Busters</text></g><g class="pt"><title>2025: AnalytIQ, 2nd place in the Technical Challenge</title><circle cx="470" cy="122" r="18" fill="transparent"/><circle class="dot" cx="470" cy="122" r="7"/><text class="lab" x="470" y="104" text-anchor="middle">AnalytIQ</text></g>
-            <g class="c-years"><text x="130" y="232" text-anchor="middle">2023</text><text x="300" y="232" text-anchor="middle">2024</text><text x="470" y="232" text-anchor="middle">2025</text><text x="640" y="232" text-anchor="middle">2026</text></g>
-          </svg>
-        </div>
-      </figure>
-
-      <!-- PHOTOS: each team has a <div class="gallery"> of <a class="tile"> links. To add a photo, copy a tile line and
-           change the two file names, the alt text and the caption. Use class "gallery mosaic" when a team has five photos
-           (one large and four small), otherwise "gallery pair" or "gallery trio". Clicking a photo opens it full size. -->
-
-      <!-- 2026 -->
-      <article class="result">
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="2">In [2]:</span>
+      <pre class="code"><code>results.dirisa.<span class="tf">plot</span>(x=<span class="ts">"year"</span>, y=<span class="ts">"place"</span>, marker=<span class="ts">"o"</span>)</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[2]:</span>
+      <div class="output">
+        <h2>DIRISA Student Datathon Challenge</h2>
+        <p class="intro">Each team has a technical group and a research group, guided by a mentor. <a href="https://sdc.dirisa.ac.za">About the competition</a></p>
+        <!-- RESULTS CHART: after the 2026 finals, add a point by copying a <g class="pt"> group
+             (cy is 62 for 1st, 122 for 2nd, 182 for 3rd; cx is 640 for 2026) and delete the "Finals" band. -->
+        <figure class="fig chart">
+          <figcaption class="top"><strong>Technical Challenge placing at the DIRISA nationals</strong> One point per year. In 2025 AnalytIQ also placed 3rd in the Research Challenge.</figcaption>
+          <div class="chart-scroll">
+            <svg viewBox="0 0 720 250" role="img" aria-label="Technical Challenge placing by year: 3rd in 2023, 1st in 2024, 2nd in 2025. The 2026 finals take place from 6 to 11 December.">
+              <g class="c-grid"><line x1="70" x2="700" y1="62" y2="62"/><text x="58" y="66" text-anchor="end">1st</text><line x1="70" x2="700" y1="122" y2="122"/><text x="58" y="126" text-anchor="end">2nd</text><line x1="70" x2="700" y1="182" y2="182"/><text x="58" y="186" text-anchor="end">3rd</text></g>
+              <rect class="c-band" x="590" y="40" width="100" height="165" rx="8"/>
+              <text class="c-note" x="640" y="116" text-anchor="middle">Finals</text>
+              <text class="c-note" x="640" y="134" text-anchor="middle">6 to 11 Dec</text>
+              <path class="c-line" d="M130 182 L300 62 L470 122"/>
+              <g class="pt"><title>2023: Data Wizards, 3rd place in the Technical Challenge</title><circle cx="130" cy="182" r="18" fill="transparent"/><circle class="dot" cx="130" cy="182" r="7"/><text class="lab" x="130" y="208" text-anchor="middle">Data Wizards</text></g>
+              <g class="pt"><title>2024: Byte Busters, 1st place in the Technical Challenge</title><circle cx="300" cy="62" r="18" fill="transparent"/><circle class="dot" cx="300" cy="62" r="7"/><text class="lab" x="300" y="44" text-anchor="middle">Byte Busters</text></g>
+              <g class="pt"><title>2025: AnalytIQ, 2nd place in the Technical Challenge</title><circle cx="470" cy="122" r="18" fill="transparent"/><circle class="dot" cx="470" cy="122" r="7"/><text class="lab" x="470" y="104" text-anchor="middle">AnalytIQ</text></g>
+              <g class="c-years"><text x="130" y="232" text-anchor="middle">2023</text><text x="300" y="232" text-anchor="middle">2024</text><text x="470" y="232" text-anchor="middle">2025</text><text x="640" y="232" text-anchor="middle">2026</text></g>
+            </svg>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="3">In [3]:</span>
+      <pre class="code"><code>results.dirisa.loc[<span class="tn">2026</span>]</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[3]:</span>
+      <div class="output">
+        <!-- PHOTOS: each team has a <div class="gallery"> of <a class="tile"> links. To add a photo, copy a tile line and
+             change the two file names, the alt text and the caption. Use class "gallery mosaic" when a team has five photos
+             (one large and four small), otherwise "gallery pair" or "gallery trio". Clicking a photo opens it full size. -->
         <div class="result-top">
           <div>
-            <span class="year">2026</span>
             <h3>No Data Left Behind</h3>
             <ul class="badges"><li class="second">2nd position, qualifiers</li><li class="pending">Nationals: 6 to 11 December, Stellenbosch University</li></ul>
           </div>
           <div class="roster">
-            <div><h4>Technical team</h4><ul><li>Jedidiah Kanju</li><li>Kaitlin Muruvan</li><li>Shaylin Indurjeeth</li><li>Lesedi Kgwefane</li></ul></div>
-            <div><h4>Research team</h4><ul><li>Siyabonga Nhlapo</li><li>Atlehang Manake</li></ul></div>
-            <div><h4>Mentor</h4><ul><li>Palesa Rapolaki</li></ul></div>
+            <div><h4>technical_team</h4><ul><li>Jedidiah Kanju</li><li>Kaitlin Muruvan</li><li>Shaylin Indurjeeth</li><li>Lesedi Kgwefane</li></ul></div>
+            <div><h4>research_team</h4><ul><li>Siyabonga Nhlapo</li><li>Atlehang Manake</li></ul></div>
+            <div><h4>mentor</h4><ul><li>Palesa Rapolaki</li></ul></div>
           </div>
         </div>
         <!-- Replace this note with a <div class="gallery pair"> of photos after the finals -->
         <p class="gallery-note"><strong>Nationals result to be confirmed.</strong> Team photos and the final placing will be added after the finals.</p>
-      </article>
-
-      <!-- 2025 -->
-      <article class="result">
+      </div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="4">In [4]:</span>
+      <pre class="code"><code>results.dirisa.loc[<span class="tn">2025</span>]</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[4]:</span>
+      <div class="output">
         <div class="result-top">
           <div>
-            <span class="year">2025</span>
             <h3>AnalytIQ</h3>
             <ul class="badges"><li class="second">2nd place, Technical Challenge</li><li class="third">3rd place, Research Challenge</li><li class="first">1st position, qualifiers</li></ul>
           </div>
           <div class="roster">
-            <div><h4>Technical team</h4><ul><li>Sharlene Moetjie</li><li>Theto Maunatlala</li><li>Raeesa Lorgat</li><li>Viasha Morgan</li></ul></div>
-            <div><h4>Research team</h4><ul><li>Mpho Murashiwa</li><li>Gwen Molekwa</li></ul></div>
-            <div><h4>Mentor</h4><ul><li>Palesa Rapolaki</li></ul></div>
+            <div><h4>technical_team</h4><ul><li>Sharlene Moetjie</li><li>Theto Maunatlala</li><li>Raeesa Lorgat</li><li>Viasha Morgan</li></ul></div>
+            <div><h4>research_team</h4><ul><li>Mpho Murashiwa</li><li>Gwen Molekwa</li></ul></div>
+            <div><h4>mentor</h4><ul><li>Palesa Rapolaki</li></ul></div>
           </div>
         </div>
         <div class="gallery mosaic">
@@ -92,81 +120,90 @@
           <a class="tile" href="assets/img/analytiq-2025-b.jpg"><img src="assets/img/analytiq-2025-b.jpg" alt="AnalytIQ team group selfie" loading="lazy"><span class="cap">The team with their mentor</span></a>
           <a class="tile" href="assets/img/analytiq-2025-c.jpg"><img src="assets/img/analytiq-2025-c.jpg" alt="AnalytIQ team at the airport on the way to nationals" loading="lazy"><span class="cap">Travelling to nationals</span></a>
         </div>
-      </article>
-
-      <!-- 2024 -->
-      <article class="result">
+      </div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="5">In [5]:</span>
+      <pre class="code"><code>results.dirisa.loc[<span class="tn">2024</span>]</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[5]:</span>
+      <div class="output">
         <div class="result-top">
           <div>
-            <span class="year">2024</span>
             <h3>Byte Busters</h3>
             <ul class="badges"><li class="first">1st place, Technical Challenge</li><li class="first">1st position, qualifiers</li></ul>
           </div>
           <div class="roster">
-            <div><h4>Technical team</h4><ul><li>Joash Paul</li><li>Mixo Khoza</li><li>Tamara Zelenyuk</li><li>Goitseona Sono</li></ul></div>
-            <div><h4>Research team</h4><ul><li>Keren Chetty</li><li>Amarachukwu Onwenu</li></ul></div>
-            <div><h4>Mentor</h4><ul><li>Lungile Mngonyama</li></ul></div>
+            <div><h4>technical_team</h4><ul><li>Joash Paul</li><li>Mixo Khoza</li><li>Tamara Zelenyuk</li><li>Goitseona Sono</li></ul></div>
+            <div><h4>research_team</h4><ul><li>Keren Chetty</li><li>Amarachukwu Onwenu</li></ul></div>
+            <div><h4>mentor</h4><ul><li>Lungile Mngonyama</li></ul></div>
           </div>
         </div>
         <div class="gallery pair">
           <a class="tile" href="assets/img/dirisa-2024-podium.jpg"><img src="assets/img/dirisa-2024-podium.jpg" alt="Byte Busters team with their prizes at the 2024 DIRISA prize-giving" loading="lazy"><span class="cap">Prize-giving, 2024</span></a>
           <a class="tile top" href="assets/img/byte-busters-team.jpg"><img src="assets/img/byte-busters-team.jpg" alt="Byte Busters technical team" loading="lazy"><span class="cap">Technical team</span></a>
         </div>
-      </article>
-
-      <!-- 2023 -->
-      <article class="result">
+      </div>
+    </div>
+  </section>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="6">In [6]:</span>
+      <pre class="code"><code>results.dirisa.loc[<span class="tn">2023</span>]</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[6]:</span>
+      <div class="output">
         <div class="result-top">
           <div>
-            <span class="year">2023</span>
             <h3>Data Wizards</h3>
             <ul class="badges"><li class="third">3rd place, Technical Challenge</li></ul>
           </div>
           <div class="roster">
-            <div><h4>Technical team</h4><ul><li>Claire Stewart</li><li>MoreBlessing Semela</li><li>Oneilwe Seleke</li><li>Palesa Rapolaki</li></ul></div>
-            <div><h4>Research team</h4><ul><li>Muhammed Bangie</li><li>Mahdiyyah Jhetam</li></ul></div>
-            <div><h4>Mentor</h4><ul><li>Lungile Mngonyama</li></ul></div>
+            <div><h4>technical_team</h4><ul><li>Claire Stewart</li><li>MoreBlessing Semela</li><li>Oneilwe Seleke</li><li>Palesa Rapolaki</li></ul></div>
+            <div><h4>research_team</h4><ul><li>Muhammed Bangie</li><li>Mahdiyyah Jhetam</li></ul></div>
+            <div><h4>mentor</h4><ul><li>Lungile Mngonyama</li></ul></div>
           </div>
         </div>
         <div class="gallery pair">
           <a class="tile" href="assets/img/dirisa-2023-podium.jpg"><img src="assets/img/dirisa-2023-podium.jpg" alt="Data Wizards team receiving their award at the 2023 DIRISA prize-giving" loading="lazy"><span class="cap">Prize-giving, 2023</span></a>
           <a class="tile" href="assets/img/data-wizards-team.jpg"><img src="assets/img/data-wizards-team.jpg" alt="Data Wizards technical team working together" loading="lazy"><span class="cap">Technical team at work</span></a>
         </div>
-      </article>
-
+      </div>
     </div>
   </section>
-
-  <section class="alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">IBM Z Datathon</span>
-        <h2>South African winners, two years running</h2>
-        <p>A social-good datathon run as an in-person national competition. <a href="https://www.starhacks.org/ibm-z-datathon-2025">About the competition</a></p>
-      </div>
-      <div class="grid c2">
-        <div class="card">
-          <span class="year eyebrow">2025</span>
-          <h3>IBM Z Datathon 2025</h3>
-          <ul class="badges"><li class="first">South African winners</li></ul>
-          <div class="roster" style="grid-template-columns: 1fr;">
-            <div><h4>Team</h4><ul><li>Viasha Morgan</li><li>Theto Maunatlala</li><li>Gwen Molekwa</li><li>Mpho Murashiwa</li></ul></div>
+  <section class="cell ">
+    <div class="cell-in" aria-hidden="true">
+      <span class="prompt in-p" data-n="7">In [7]:</span>
+      <pre class="code"><code>results.ibm_z</code></pre>
+    </div>
+    <div class="cell-out">
+      <span class="prompt out-p" aria-hidden="true">Out[7]:</span>
+      <div class="output">
+        <h2>IBM Z Datathon</h2>
+        <p class="intro">South African winners, two years running. A social-good datathon run as an in-person national competition. <a href="https://www.starhacks.org/ibm-z-datathon-2025">About the competition</a></p>
+        <div class="grid c2">
+          <div class="card">
+            <h3>IBM Z Datathon 2025</h3>
+            <ul class="badges"><li class="first">South African winners</li></ul>
+            <div class="roster one"><div><h4>team</h4><ul><li>Viasha Morgan</li><li>Theto Maunatlala</li><li>Gwen Molekwa</li><li>Mpho Murashiwa</li></ul></div></div>
           </div>
-        </div>
-        <div class="card">
-          <span class="year eyebrow">2024</span>
-          <h3>IBM Z Datathon 2024</h3>
-          <ul class="badges"><li class="first">South African winners</li></ul>
-          <div class="roster" style="grid-template-columns: 1fr; margin-bottom: 1.25rem;">
-            <div><h4>Team</h4><ul><li>Mixo Khoza</li><li>Goitseona Sono</li><li>Amarachukwu Onwenu</li><li>Daniel Ngobe</li></ul></div>
-          </div>
-          <div class="gallery single">
+          <div class="card">
+            <h3>IBM Z Datathon 2024</h3>
+            <ul class="badges"><li class="first">South African winners</li></ul>
+            <div class="roster one"><div><h4>team</h4><ul><li>Mixo Khoza</li><li>Goitseona Sono</li><li>Amarachukwu Onwenu</li><li>Daniel Ngobe</li></ul></div></div>
+            <div class="gallery single">
           <a class="tile" href="assets/img/ibmz-2024.jpg"><img src="assets/img/ibmz-2024.jpg" alt="The 2024 IBM Z Datathon team in a computer lab" loading="lazy"><span class="cap">The 2024 team</span></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer class="site-footer" id="site-footer"></footer>
