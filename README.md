@@ -23,3 +23,7 @@ Plain HTML, CSS and JavaScript. There is no build step: the files in this folder
 | Photos and logo | `assets/img/` |
 
 HTML comments (`<!-- ... -->`) in each page mark the spots meant for regular updates.
+
+## Clean addresses
+
+Links between pages leave out `.html`, so visitors see `/events` rather than `/events.html`. This works once the site is hosted (Netlify, GitHub Pages). If you open the files directly from your computer by double-clicking, the menu links will not work; open each page file individually, or preview on the host instead.

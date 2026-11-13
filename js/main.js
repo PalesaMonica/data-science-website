@@ -1,13 +1,16 @@
 // Shared header and footer for every page, so the menu only has to be edited in one place.
 (function () {
+  // Links have no ".html" so the address bar shows clean URLs (for example /events).
+  // Netlify and GitHub Pages both serve events.html when /events is requested.
   var pages = [
-    ["index.html", "Home"],
-    ["events.html", "Events"],
-    ["resources.html", "Resources"],
-    ["achievements.html", "Achievements"],
-    ["team.html", "Team & Join"]
+    ["./", "Home"],
+    ["events", "Events"],
+    ["resources", "Resources"],
+    ["achievements", "Achievements"],
+    ["team", "Team & Join"]
   ];
-  var here = location.pathname.split("/").pop() || "index.html";
+  var here = location.pathname.split("/").pop().replace(/\.html$/, "");
+  if (here === "" || here === "index") here = "./";
 
   var links = pages.map(function (p) {
     var current = p[0] === here ? ' aria-current="page"' : "";
@@ -18,7 +21,7 @@
   if (header) {
     header.innerHTML =
       '<div class="wrap">' +
-        '<a class="brand" href="index.html">' +
+        '<a class="brand" href="./">' +
           '<img src="assets/img/logo-icon.png" alt="">' +
           '<span class="brand-text"><strong>Data Science</strong><span>Interest Group</span></span>' +
         "</a>" +
